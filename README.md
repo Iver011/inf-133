@@ -1,2 +1,3 @@
-#INF-133
-##Iver Mamani Cordero
+#inf-133
+Repositorio  de la materia INF-133
+###Nombre: Iver Mamani Cordero
