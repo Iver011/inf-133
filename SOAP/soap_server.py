@@ -1,8 +1,9 @@
 from http.server import HTTPServer
-from pysimplesoap.server import SoapDispatcher, SOAPHanler
+from pysimplesoap.server import SoapDispatcher, SOAPHandler
 
 def saludar(nombre):
-    return "Hola!"
+        return "¡Hola, {}!".format(nombre)
+
 
 dispatcher=SoapDispatcher(
     "ejemplo-soap-server",
@@ -21,7 +22,7 @@ dispatcher.register_function(
     args={"nombre":str}
 )
 
-server = HTTPServer(('0.0.0.0',8000),SOAPHanler)
+server = HTTPServer(('0.0.0.0',8000),SOAPHandler)
 server.dispatcher=dispatcher
 print("Servidor SOAP iniciado en localhost:8000")
 server.serve_forever()
