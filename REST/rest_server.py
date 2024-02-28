@@ -10,6 +10,7 @@ estudiantes = [
     },
 ]
 
+
 class RESTRequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/lista_estudiantes':
@@ -17,6 +18,27 @@ class RESTRequestHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'application/json')
             self.end_headers()
             self.wfile.write(json.dumps(estudiantes).encode('utf-8'))
+        elif self.path=='/buscar_estudiante':
+            nombres= [estudiante['nombre'] for estudiante in estudiantes if estudiante['nombre'].startswith('P')]
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps(nombres).encode('utf-8')) 
+        elif self.path=='/contar_carreras':
+            contador={}
+            for estudiante in estudiantes:
+                carrera=estudiante["carrera"]
+                contador[carrera]=contador.setdefault(carrera,0)+1
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps(contador).encode('utf-8')) 
+        elif self.path=='/total_estudiantes':
+            contador=len(estudiantes)
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps(contador).encode('utf-8'))
         else:
             self.send_response(404)
             self.send_header('Content-type', 'application/json')
@@ -39,7 +61,9 @@ class RESTRequestHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'application/json')
             self.end_headers()
             self.wfile.write(json.dumps({"Error": "Ruta no existente"}).encode('utf-8'))
-            
+        
+    
+
 def run_server(port = 8000):
     try:
         server_address = ('', port)
