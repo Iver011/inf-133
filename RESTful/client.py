@@ -102,3 +102,9 @@ filtro_carrera_response=requests.request(method="GET",
                                          url=ruta_filtro_carrera)
 
 print(filtro_carrera_response.text)
+
+ruta_filtro_carrera=url + "carreras/Economia"
+filtro_carrera_response=requests.request(method="GET",
+                                         url=ruta_filtro_carrera)
+
+print(filtro_carrera_response.text)

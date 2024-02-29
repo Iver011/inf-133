@@ -38,6 +38,7 @@ class RESTRequestHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type','application/json')
             self.end_headers()
             self.wfile.write(json.dumps(carreras).encode('utf-8'))
+            
         elif self.path.startswith("/carreras/"):
             carrera=self.path.split("/")[-1]
             est=[]
