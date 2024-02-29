@@ -23,7 +23,7 @@ class RESTRequestHandler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            self.wfile.write(json.dumps(nombres).encode('utf-8')) 
+            self.wfile.write(json.dumps(nombres).encode('utf-8')) #el dumps convierte a json el elemento
         elif self.path=='/contar_carreras':
             contador={}
             for estudiante in estudiantes:
