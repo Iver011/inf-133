@@ -39,6 +39,15 @@ class RESTRequestHandler(BaseHTTPRequestHandler):
                 if estudiantes_filtrados!=[]:self.response_handler(estudiantes_filtrados,200)
                 else:
                     self.response_handler(204,[])
+            elif "apellido" in query_params:
+                apellido=query_params["apellido"][0]
+                estudiantes_filtrados=[estudiante for estudiante in estudiantes if estudiante["apellido"]==apellido]
+                self.response_handler(estudiantes_filtrados,200)
+            elif 'nombre' in query_params and 'apellido' in query_params:
+                nombre=query_params["nombre"][0]
+                apellido=query_params["apellido"][0]
+                estudiantes_filtrados=[estudiante for estudiante in estudiantes if estudiante["nombre"]==nombre and estudiante["apellido"]==apellido]
+                self.response_handler(estudiantes_filtrados,200)
             else:
                 self.response_handler(estudiantes,200)
 
