@@ -1,6 +1,6 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
-from graphene import ObjectType, String, Int,List,Schema
+from graphene import ObjectType, String, Int,List,Schema,Field
 #HTTPSERVER nos dice donde vive el servidor almacena la direccion del puerto
 #BaseHTTP determina las solicitures, se encarga de recibir y dar la respuesta
 #lee lo que llega que es texto plano a algo mas manejable
@@ -8,9 +8,10 @@ from graphene import ObjectType, String, Int,List,Schema
 #y a cada campo darle un tipo de dato
 #List objeto que puede almacerar multiples datos
 #Schema da toda las consultas posibles, y el como se intercambia la info es a cargo del ObjectType
-
+#Field en caso de devolver un campo especifico de un objeto
 
 class Query(ObjectType):
+    estudiantes=List(Estudiante)
     hello=String()
     goodbye= String()
     def resolve_hello(root,info):
