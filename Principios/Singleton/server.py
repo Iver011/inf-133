@@ -1,6 +1,7 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 import json
 
+#SOLO SE USA CUANDO HAY UNA INSTANCIA DE UN OBJETO, COMO SOLO UN PRESIDENTE
 class Player:
     _instance = None
 

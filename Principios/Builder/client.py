@@ -3,10 +3,10 @@ import requests
 url = "http://localhost:8000/pizza"
 headers = {'Content-type': 'application/json'}
 
-mi_pizza = {
-    "tamaño": "Grande",
+pizza = {
+    "tamaño": "Mediana",
     "masa": "Delgada",
-    "toppings": ["Jamon", "Queso"]
+    "toppings": ["Jamon", "Queso","Piña"]
 }
-response = requests.post(url, json=mi_pizza, headers=headers)
+response = requests.post(url, json=pizza, headers=headers)
 print(response.json())
