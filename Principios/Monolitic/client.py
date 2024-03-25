@@ -24,4 +24,5 @@ print(response.text)
 response= requests.get(f"{url}/posts")
 print(response.text)
 
-response=requests.update()
+
+
