@@ -24,7 +24,7 @@ db.init_app(app)
 # Registra el blueprint de animales en la aplicación
 app.register_blueprint(animal_bp, url_prefix="/api")
 
-# Crea las tablas si no existen
+# Crea las tablas si no @existen
 with app.app_context():
     db.create_all()
 
