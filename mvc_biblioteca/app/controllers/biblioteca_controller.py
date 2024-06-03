@@ -1,7 +1,7 @@
 from flask import Blueprint,request,jsonify
-from models.biblioteca_model import Libro
-from views.biblioteca_view import render_libro_detail,render_libro_list
-from utils.decorators import jwt_required,roles_required
+from app.models.biblioteca_model import Libro
+from app.views.biblioteca_view import render_libro_detail,render_libro_list
+from app.utils.decorators import jwt_required,roles_required
 
 libro_bp=Blueprint("libro",__name__)
 

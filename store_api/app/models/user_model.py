@@ -26,4 +26,3 @@ class User(UserMixin,db.Model):
     @staticmethod
     def find_by_username(username):
         return User.query.filter_by(username=username).first()
-

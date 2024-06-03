@@ -1,9 +1,9 @@
 from flask_swagger_ui import get_swaggerui_blueprint
 from flask import Flask
-from database import db
+from app.database import db
 from flask_jwt_extended import JWTManager
-from controllers.biblioteca_controller import libro_bp
-from controllers.user_controller import user_bp
+from app.controllers.biblioteca_controller import libro_bp
+from app.controllers.user_controller import user_bp
 
 app=Flask(__name__)
 
